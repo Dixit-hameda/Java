@@ -1,0 +1,35 @@
+class University {
+
+    static int totalStudents;
+    static String universityName;
+
+    static {
+        universityName = "ABC University";
+        totalStudents = 0;
+        System.out.println("Static block: university loaded");
+    }
+
+    {
+        totalStudents++;
+        System.out.println("Instance block: new student object created");
+    }
+
+    University() {
+        System.out.println("Constructor: object ready");
+    }
+
+    static int getTotalStudents() {
+        return totalStudents;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println("Main started");
+
+        University s1 = new University();
+        University s2 = new University();
+        University s3 = new University();
+
+        System.out.println("Total students: " + University.getTotalStudents());
+    }
+}
