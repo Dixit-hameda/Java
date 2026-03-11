@@ -1,0 +1,28 @@
+class VolumeCalculator {
+
+    void calculateVolume(int side) {
+        double volume = side * side * side;
+        System.out.println("Volume of Cube: " + volume);
+    }
+
+    void calculateVolume(int length, int width, int height) {
+        double volume = length * width * height;
+        System.out.println("Volume of Rectangular Cube: " + volume);
+    }
+
+    void calculateVolume(double radius) {
+        double volume = (4.0 / 3.0) * Math.PI * radius * radius * radius;
+        System.out.println("Volume of Sphere: " + volume);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        VolumeCalculator v = new VolumeCalculator();
+
+        v.calculateVolume(5);
+        v.calculateVolume(4, 6, 8);
+        v.calculateVolume(3.5);
+    }
+}
