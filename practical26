@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Payment {
+
+    void processPayment(int amount) {
+        System.out.println("Processing payment of Rs. " + amount);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int choice = sc.nextInt();
+        int amount = sc.nextInt();
+
+        Payment p;
+
+        if (choice == 1) {
+            p = new CreditCardPayment();
+        } else if (choice == 2) {
+            p = new UPIPayment();
+        } else {
+            System.out.println("Invalid choice");
+            return;
+        }
+
+        p.processPayment(amount);
+    }
+}
+
+class CreditCardPayment extends Payment {
+    @Override
+    void processPayment(int amount) {
+        System.out.println("Payment of Rs. " + amount + " done Using Credit Card");
+    }
+}
+
+class UPIPayment extends Payment {
+    @Override
+    void processPayment(int amount) {
+        System.out.println("Payment of Rs. " + amount + " done using UPI");
+    }
+}
